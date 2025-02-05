@@ -1,11 +1,9 @@
 let nroSecreto = 0; 
 let intentos = 0;
 let intentosMax = 4;
-let listaNros = []; //es una variablle estructurada, su tipo es un array (vector)
+let listaNros = []; 
 let nromaximo = 100;
 
-//alert('Bienvenido al juego del número secreto');
-//funcion que es generica y nos permite reutilizarla varias veces.
 function asignarTextoElemento(elemento, texto) {
     let elementoHTML = document.querySelector(elemento);
     elementoHTML.innerHTML = texto;
@@ -46,7 +44,7 @@ function generarNroSecreto() {
     console.log(listaNros);
     //Si ya sorteamos todos los nros
     if (listaNros.length == nromaximo) {
-       asignarTextoElemento('p', 'Ya se sortearon todos los nros posibles'); 
+       asignarTextoElemento('p', 'Ya se usaron todos los números posibles.'); 
     } else {
          //Si el nroGenerado esta incluido en la lista
         if (listaNros.includes(nroGenerado)) {
@@ -55,10 +53,8 @@ function generarNroSecreto() {
             listaNros.push(nroGenerado);
             return nroGenerado;
         }
-
     }
 }   
-
 
 function condicionInicio() {
     asignarTextoElemento('h1', 'Juego del Número Secreto');
@@ -81,21 +77,3 @@ function reiniciarJuego() {
 
 //------------------------------------------------------------
 condicionInicio();
-
-
-if (intentos > intentosMax) {
-    alert(`Llegaste al máximo de ${intentosMax} intentos posibles. El nro Secreto era: ${nroSecreto}`);
-}
-
-//---------------
-    /*Pruebas para ver si el juego hace lo que se le pide.
-    console.log(nroSecreto);
-    console.log(nroUsuario);
-    console.log(nroUsuario === nroSecreto); //Con (===) Si o si tienen que ser igual en valor y tipo de dato
-    */
-
-/*let titulo = document.querySelector('h1');
-titulo.innerHTML = 'Juego del Número Secreto';
-let parrafo = document.querySelector('p');
-parrafo.innerHTML = 'Indica un número del 1 al 10.';
-*/
